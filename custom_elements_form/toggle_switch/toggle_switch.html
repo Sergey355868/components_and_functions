@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>toggle_switch</title>
+    <style>
+        .toggle-switch_size_m {
+            width: 30px;
+            height: 17px;
+        }
+        .toggle-switch_size_s {
+            width: 20px;
+            height: 11px;
+        }
+        .toggle-switch_size_l {
+            width: 60px;
+            height: 34px;
+        }
+        .toggle-switch {
+            display: inline-block;
+
+        }
+        .toggle-switch__wraper {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .toggle-switch__input {
+            height: 0;
+            width: 0;
+            opacity: 0;
+        }
+        .toggle-switch__slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        .toggle-switch__slider_theme_gray {
+            background-color: #ccc;
+        }
+        .toggle-switch__slider:before {
+            position: absolute;
+            content: "";
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        .toggle-switch__slider_theme_gray:before {
+            background-color: white;
+        }
+        .toggle-switch__slider_size_l:before {
+            height: 26px;
+            width: 26px;
+        }
+        .toggle-switch__slider_pos_l:before {
+            left: 4px;
+            bottom: 4px;
+        }
+        .toggle-switch__slider_size_m:before {
+            height: 13px;
+            width: 13px;
+        }
+        .toggle-switch__slider_pos_m:before {
+            left: 2px;
+            bottom: 2px;
+        }
+        .toggle-switch__slider_size_s:before {
+            height: 9px;
+            width: 9px;
+        }
+        .toggle-switch__slider_pos_s:before {
+            left: 1px;
+            bottom: 1px;
+        }
+        .toggle-switch__input:checked + .toggle-switch__slider_checked {
+            background-color: #2196F3;
+        }
+        .toggle-switch__input:focus + .toggle-switch__slider_focused {
+            box-shadow: 1px 1px 3px  #2196F3;
+        }
+        .toggle-switch__input:checked + .toggle-switch__slider_size_l:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+        .toggle-switch__input:checked + .toggle-switch__slider_size_m:before {
+            -webkit-transform: translateX(13px);
+            -ms-transform: translateX(13px);
+            transform: translateX(13px);
+        }
+        .toggle-switch__input:checked + .toggle-switch__slider_size_s:before {
+            -webkit-transform: translateX(9px);
+            -ms-transform: translateX(9px);
+            transform: translateX(9px);
+        }
+        .toggle-switch__slider_round_l {
+            border-radius: 34px;
+        }
+        .toggle-switch__slider_round_m {
+            border-radius: 17px;
+        }
+        .toggle-switch__slider_round_s {
+            border-radius: 11px;
+        }
+        .toggle-switch__slider_round_l:before,
+        .toggle-switch__slider_round_m:before,
+        .toggle-switch__slider_round_s:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<label class="toggle-switch toggle-switch_size_m">
+    <span class="toggle-switch__wraper">
+        <input type="checkbox" class="toggle-switch__input">
+        <span
+            class ="toggle-switch__slider
+            toggle-switch__slider_theme_gray
+            toggle-switch__slider_checked
+            toggle-switch__slider_focused
+            toggle-switch__slider_pos_m
+            toggle-switch__slider_size_m
+            toggle-switch__slider_round_m"
+        ></span>
+    </span>
+</label>
+</body>
+</html>

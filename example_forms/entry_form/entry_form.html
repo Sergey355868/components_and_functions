@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./entry_form.css">
+    <title>entry_form</title>
+ </head>
+<body class="page">
+     <button id ="show">Показать модальную форму входа</button>
+    <div class="overlay page__overlay entry-form_hidden" id="overlay"></div>
+    <div class="entry-form entry-form_theme_gray page__entry-form entry-form_size entry-form_hidden" id="modal">
+            <form action="#" name="entry-form" class="entry-form__form  entry-form__entry-form__form" >
+            <a class="entry-form__close">
+                <img
+                    src="./close.png"
+                    alt="закрыть"
+                    class="entry-form__close-img
+                    entry-form__close-img_size"
+                    id ="close"
+                >
+            </a>
+            <div class="entry-form__container-img">
+                <img src="./entry.jpg" alt="фото" class="entry-form__img">
+            </div>
+            <label for="name" class="entry-form__label">Логин или Почта</label>
+            <input type="text" id ="name" class="entry-form__input-text entry-form__input-text_size entry-form__label
+             entry-form__input-text_outline">
+            <label for="password" class="entry-form__label">Пароль</label>
+            <input type="password" id="password" class="entry-form__input-password entry-form__input-text
+             entry-form__input-text_size entry-form__input-text_outline">
+            <input type="submit" class="entry-form__input-submit entry-form__input-submit_size
+            entry-form__input-submit_theme entry-form__input-text_outline entry-form__close-img_cursor" value="Войти">
+            <span class="entry-form__forget ">
+                <a href="#" class="entry-form__link entry-form__label
+                   entry-form__input-text_outline">Забыли пароль?
+                </a>
+            </span>
+        </form>
+    </div>
+    <script>
+        let show = document.getElementById("show");
+        let close = document.getElementById("close");
+        let modal = document.getElementById("modal");
+        let overlay = document.getElementById("overlay");
+        [show, close].forEach(el => el.onclick = showHandler);
+        function showHandler() {
+            [modal, overlay].forEach((el, index) => {
+                if (!index) {
+                    el.classList.toggle("entry-form_hidden");
+                    el.classList.toggle("entry-form_animate");
+                } else {
+                    el.classList.toggle("entry-form_hidden");
+                    el.classList.toggle("overlay_animate");
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

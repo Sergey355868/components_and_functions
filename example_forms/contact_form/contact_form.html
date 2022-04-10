@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>custom_select</title>
+    <style>
+        .contact-form__form {
+            border-radius: 5px;
+            border: 1px solid lightgray;
+        }
+        .contact-form__form_theme_white {
+            background-color: #f2f2f2;
+        }
+        .contact-form__form_shadow {
+            box-shadow: 10px 10px 25px  lightgray;
+        }
+        .contact-form__size_50 {
+           width: 50%;
+        }
+        .page__contact-form {
+            margin: 0 auto;
+        }
+        .contact-form__form {
+            padding: 20px;
+        }
+        .contact-form__input-text {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline-color: lightgray;
+        }
+        .contact-form__input-text_size_l {
+            width: 100%;
+            margin-top: 6px;
+            padding: 12px;
+            margin-bottom: 16px;
+        }
+        .contact-form__textarea {
+            resize: vertical;
+        }
+        .contact-form__input-submit {
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid lightgray;
+        }
+        .contact-form__input-submit_theme_dark {
+            background-color: lightgray;
+            color: darkgrey;
+        }
+        .contact-form__input-submit:hover {
+            background-color: darkgrey;
+            color: black;
+            font-weight: 300;
+        }
+        .contact-form__label {
+            font-weight: bold;
+            font-style: oblique;
+        }
+        .contact {
+            margin: 0  auto 16px;
+            width: 50%;
+        }
+
+    </style>
+</head>
+<body class="page">
+<h3 class="contact">Контакт</h3>
+<div class = "
+    contact-form
+    page__contact-form
+    contact-form__size_50"
+>
+    <form action="#" class="
+    contact-form__form
+    contact-form__form_shadow
+    contact-form__form_theme_white"
+    >
+        <label class="contact-form__label">Имя
+            <input type="text" id="name" class="contact-form__input-text contact-form__input-text_size_l">
+        </label>
+        <label class="contact-form__label">Фамилия
+            <input type="text" id="surname" class="contact-form__input-text contact-form__input-text_size_l">
+        </label>
+        <label class="contact-form__label">Страна
+            <select name="country" class="contact-form__select contact-form__input-text contact-form__input-text_size_l">
+                <option value="australia">Австралия</option>
+                <option value="canada">Канада</option>
+                <option value="usa">США </option>
+            </select>
+        </label>
+        <label for="subject" class="contact-form__label">Вопрос</label>
+        <textarea id="subject" name="subject" placeholder="Написать нечто.." class="contact-form__textarea
+        contact-form__input-text contact-form__input-text_size_l"></textarea>
+        <input type="submit" value="Отправить" class="contact-form__input-submit contact-form__input-submit_theme_dark">
+    </form>
+</div>
+
+
+</body>
+</html>

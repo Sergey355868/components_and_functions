@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>button_scroll_fixed</title>
+    <style>
+        .page {
+            height: 2000px;
+        }
+        .button-scroll {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .body__page {
+            position: fixed;
+            bottom:20px;
+            right: 30px;
+            z-index: 100;
+        }
+        .button-scroll_hidden {
+            display: none;
+        }
+        .botton-scroll_theme_green {
+            background-color: green;
+            color: white;
+        }
+        .botton-scroll_size_l {
+            padding: 15px;
+            font-size: 18px;
+        }
+        .button-scroll__img_arrow {
+            background-image: url("./arrow.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+            padding: 25px 50px;
+            box-shadow: 5px 5px 10px forestgreen;
+        }
+    </style>
+</head>
+<body class="page">
+<script>
+class ButtonScroll {
+  button = document.createElement('button');
+  delete_handlers = {};
+  constructor({
+    text  = "Наверх",
+    distance = 20,
+    element_paste = document.body,
+    method_paste  = "append",
+    classes = [
+        "button-scroll",
+        "button-scroll_hidden",
+        "body__page",
+        "botton-scroll_theme_green",
+        "botton-scroll_size_l",
+        "button-scroll__img_arrow"
+    ],
+  } ={}) {
+    this.text = text;
+    this.distance  = distance;
+    this.element_paste = element_paste;
+    this.method_paste = method_paste;
+    this.classes = classes;
+    this.button.className = this.classes.join(" ");
+    if (this.element_paste instanceof Element && Element.prototype[this.method_paste]) {
+        this.button.textContent = this.text;
+        this.element_paste[this.method_paste](this.button);
+    }
+    this.addListeners();
+  }
+  addListeners() {
+      let del = this.delete_handlers;
+      let distance = this.distance;
+      let button = this.button;
+      let html = document.documentElement;
+      let body = document.body;
+
+      document.addEventListener("scroll", function scroll(event) {
+          if (body.scrollTop > distance || html.scrollTop > distance) {
+              button.style.display = "block";
+          } else {
+              button.style.display = "none";
+          }
+          if ( !del[event.type]) {
+              del[event.type] = scroll;
+          }
+      });
+      document.addEventListener("click", function click({ target, type }) {
+            if (target === button) {
+               body.scrollTop = 0; // Для Safari
+               html.scrollTop = 0; // Для Chrome, Firefox, IE и Opera
+               if (!del[type]) {
+                    del[type] = click;
+               }
+            }
+      });
+  }
+  deleteHandlers() {
+      Object.entries(this.delete_handlers).forEach(([event, handler]) => {
+          document.removeEventListener(event, handler);
+      });
+  }
+
+}
+ new ButtonScroll({
+     distance:30,
+     text:"",
+ });
+
+ </script>
+
+</body>
+</html>

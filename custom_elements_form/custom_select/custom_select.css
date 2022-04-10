@@ -1,0 +1,125 @@
+.root__custom-select {
+    margin-left: 10px;
+}
+.custom-select {
+    width: 120px;
+    display: inline-block;
+}
+.custom-select__select {
+    display: none;
+}
+.custom-select__selected {
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.custom-select__selected_theme {
+    background-color: DodgerBlue;
+    color: #fff;
+    font-weight: bold;
+}
+.custom-select__selected_bxshadow {
+    box-shadow: 2px 2px 4px DodgerBlue;
+}
+.custom-select__selected_size {
+    padding: 8px 17px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) ;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.custom-select__selected:after {
+    position: absolute;
+    content: "";
+    top:50%;
+    right: 3%;
+    border: 4px solid transparent;
+    border-top: 4px solid #fff;
+}
+.custom-select__selected_active:after {
+    top: 25%;
+    right: 3%;
+    border: 4px solid transparent;
+    border-bottom: 4px solid #fff;
+}
+.custom-select__span-text {
+
+}
+.custom-select__select-items {
+    text-align: center;
+}
+.custom-select__select-items_bxshadow {
+    box-shadow: 2px 2px 4px DodgerBlue;
+}
+.custom-select__select-items_theme {
+    background-color: DodgerBlue;
+}
+.custom-select__select-items_size {
+    width: 100%;
+    border-radius: 5px;
+    border-top: 1px solid white;
+}
+.custom-select__select-items_pos {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+}
+.custom-select__select-items_hide {
+    display: none;
+}
+.custom-select__select-item {
+    background-color: DodgerBlue;
+}
+.custom-select__select-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.custom-select__select-item:first-child {
+    border-radius:5px;
+}
+.custom-select__select-item:last-child{
+    border-radius: 5px;
+}
+.animate-enter {
+    -webkit-animation: animatezoom_enter 0.6s;
+    animation: animatezoom_enter 0.6s
+}
+.animate-out {
+    -webkit-animation: animatezoom_out 0.2s;
+    animation: animatezoom_out 0.2s;
+}
+@-webkit-keyframes animatezoom_enter {
+    from {
+        -webkit-transform: scale(0);
+    }
+    to {
+        -webkit-transform: scale(1);
+    }
+}
+@keyframes animatezoom_enter {
+    from {
+        transform: scale(0);
+    }
+    to {
+
+        transform: scale(1);
+    }
+}
+@-webkit-keyframes animatezoom_out {
+    from {
+        -webkit-transform: scale(1);
+    }
+    to {
+        -webkit-transform: scale(0);
+    }
+}
+@keyframes animatezoom_out {
+    from {
+        transform: scale(1);
+    }
+    to {
+
+        transform: scale(0);
+    }
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>custom_checkbox</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .body__page {
+            margin-top: 12px;
+        }
+        .custom-checkbox {
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+             user-select: none;
+        }
+        .custom-checkbox__wraper {
+            display: inline-block;
+            position: relative;
+        }
+        .custom-checkbox__wraper_size_l {
+            font-size: 22px;
+            padding-left: 35px;
+        }
+        .custom-checkbox__wraper_size_s {
+            font-size: 16px;
+            padding-left: 29px;
+        }
+        .custom-checkbox__input {
+            position: absolute;
+            opacity: 0;
+            height: 0;
+            width: 0;
+        }
+        .custom-checkbox__checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .custom-checkbox__checkmark_size_l {
+            height: 25px;
+            width: 25px;
+        }
+        .custom-checkbox__checkmark_size_s {
+            height: 19px;
+            width:  19px;
+        }
+        .custom-checkbox__checkmark_bx-shadow {
+            box-shadow: 3px 3px 3px lightgray;
+        }
+        .custom-checkbox__checkmark_theme_litegray {
+            background-color: #eee;
+        }
+        .custom-checkbox__checkmark_border {
+            border: 1px solid #ccc;
+            border-radius: 2px;
+        }
+        .custom-checkbox:hover  .custom-checkbox__checkmark_hovered {
+            background-color: #ccc;
+        }
+        .custom-checkbox__input:checked + .custom-checkbox__checkmark_checked {
+            background-color: #2196F3;
+        }
+        .custom-checkbox__checkmark:after {
+            content: "";
+            position: absolute;
+            left: 36%;
+            top: 20%;
+            display: none;
+        }
+        .custom-checkbox__input:checked + .custom-checkbox__checkmark:after {
+            display: block;
+            width: 20%;
+            height: 40%;
+        }
+        .custom-checkbox__checkmark:after {
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="page">
+<label class="custom-checkbox body__page">
+  <span class="custom-checkbox__wraper custom-checkbox__wraper_size_s">
+      Один
+     <input type="checkbox" class="custom-checkbox__input" name ="checkbox">
+     <span
+        class="custom-checkbox__checkmark
+        custom-checkbox__checkmark_hovered
+        custom-checkbox__checkmark_checked
+        custom-checkbox__checkmark_size_s
+        custom-checkbox__checkmark_theme_litegray
+        custom-checkbox__checkmark_border
+        custom-checkbox__checkmark_bx-shadow"
+     ></span>
+  </span>
+</label>
+</body>
+</html>

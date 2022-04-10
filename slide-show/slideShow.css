@@ -1,0 +1,111 @@
+* {
+    box-sizing:border-box;
+}
+.b-slideshow-container {
+    max-width: 1000px;
+    width: 50vw;
+    height: 50vh;
+    padding: 0.3vw;
+    position: relative;
+    margin: auto;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    box-shadow: 20px 0 20px -20px #000 inset, -20px 0 20px -20px #000 inset;
+}
+.b-my-slide {
+    height: 100%;
+    width: 100%;
+}
+.b-my-slide_fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 500ms;
+    animation-name: fade;
+    animation-duration: 500ms;
+}
+.my-slide__number-text {
+    color: #f2f2f2;
+    font-size: 1vmax;
+    padding: 0.4vmax 0.5vmax;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+}
+.my-slide__img {
+    width: 100%;
+    height: 100%;
+}
+.my-slide__text {
+    color: #16262f;
+    font-size:  1.2vmax;
+    letter-spacing: 0.35vmax;
+    padding:  0.4vmax 0.5vmax;
+    position: absolute;
+    bottom: 0.8vh;
+    width: 100%;
+    text-align: center;
+}
+.b-arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 2.5vw;
+    height: 4.5vh;
+    opacity: 0.7;
+    font-weight: bold;
+    transition: 0.6s ease;
+    user-select: none;
+}
+.b-arrow_prev {
+    left: 0;
+    margin-left: -1.25vw;
+    border-radius: 0 3px 3px 0;
+    transform: rotate(-180deg);
+}
+.b-arrow_next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    margin-right: -1.25vw;
+}
+.b-arrow:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+.b-dot-contaner {
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: 0 auto;
+}
+.b-dot {
+    cursor: pointer;
+    height: 1.5vh;
+    width: 1vw;
+    border-radius: 50%;
+}
+.b-dot_slideshow {
+    background-color: #bbb;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    margin: 0.5vw .5vh;
+}
+.b-dot_slideshow_active, .b-dot_slideshow:hover {
+    background-color: #717171;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 1),
+    -23px 0 20px -23px rgba(0, 0, 0, .8),
+    23px 0 20px -23px rgba(0, 0, 0, .8),
+    0 0 40px rgba(0, 0, 0, .1) inset;
+}
+@-webkit-keyframes fade {
+    from {
+        opacity: .7
+    }
+    to {
+        opacity: 1
+    }
+}
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}

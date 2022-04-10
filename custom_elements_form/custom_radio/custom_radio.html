@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>custom_radio</title>
+    <style>
+       .body__page {
+           margin: 15px auto 0 ;
+       }
+       .custom-radio {
+           display: inline-block;
+           cursor: pointer;
+           -webkit-user-select: none;
+           -moz-user-select: none;
+           -ms-user-select: none;
+           user-select: none;
+       }
+       .custom-radio__wraper {
+          display: inline-block;
+          position: relative;
+       }
+       .custom-radio__wraper_font {
+           font-weight: bold;
+           font-style: italic;
+       }
+       .custom-radio__wraper_size_l {
+           font-size: 22px;
+           padding-left: 35px;
+       }
+       .custom-radio__wraper_size_s {
+           font-size: 16px;
+           padding-left: 29px;
+       }
+
+       .custom-radio__input {
+           position: absolute;
+           opacity: 0;
+           height: 0;
+           width: 0;
+       }
+       .custom-radio__checkmark {
+           position: absolute;
+           left: 0;
+           top: 0;
+       }
+       .custom-radio__checkmark_size_l {
+           height: 25px;
+           width: 25px;
+       }
+       .custom-radio__checkmark_size_s {
+           height: 19px;
+           width:  19px;
+       }
+       .custom-radio__checkmark_bx-shadow {
+           box-shadow: 2px 2px 3px lightgray;
+       }
+       .custom-radio__checkmark_theme_litegray {
+           background-color: #eee;
+       }
+       .custom-radio__checkmark_border {
+           border: 1px solid #ccc;
+           border-radius: 50%;
+       }
+       .custom-radio:hover  .custom-radio__checkmark_hovered {
+           background-color: #ccc;
+       }
+       .custom-radio__input:checked + .custom-radio__checkmark_checked {
+           background-color: #2196F3;
+       }
+       .custom-radio__checkmark:after {
+           content: "";
+           position: absolute;
+           left: 36%;
+           top: 36%;
+           display: none;
+       }
+       .custom-radio__input:checked + .custom-radio__checkmark:after {
+           display: block;
+           width: 32%;
+           height: 32%;
+       }
+       .custom-radio__checkmark:after {
+           border-radius: 50%;
+           background: white;
+       }
+    </style>
+</head>
+<body class="page">
+<label class="custom-radio body__page">
+  <span class="custom-radio__wraper custom-radio__wraper_size_s custom-radio__wraper_font">
+      Один
+     <input type="radio" class="custom-radio__input" name ="radio">
+     <span
+        class="custom-radio__checkmark
+        custom-radio__checkmark_hovered
+        custom-radio__checkmark_checked
+        custom-radio__checkmark_size_s
+        custom-radio__checkmark_theme_litegray
+        custom-radio__checkmark_border
+        custom-radio__checkmark_bx-shadow"
+     ></span>
+  </span>
+</label>
+<label class="custom-radio body__page">
+  <span class="custom-radio__wraper custom-radio__wraper_size_l">
+      Два
+     <input type="radio" class="custom-radio__input" name ="radio">
+     <span
+        class="custom-radio__checkmark
+        custom-radio__checkmark_hovered
+        custom-radio__checkmark_checked
+        custom-radio__checkmark_size_l
+        custom-radio__checkmark_theme_litegray
+        custom-radio__checkmark_border
+        custom-radio__checkmark_bx-shadow"
+     ></span>
+  </span>
+</label>
+<label class="custom-radio body__page">
+  <span class="custom-radio__wraper custom-radio__wraper_size_l">
+      Три
+     <input type="radio" class="custom-radio__input" name ="radio">
+     <span
+             class="custom-radio__checkmark
+        custom-radio__checkmark_hovered
+        custom-radio__checkmark_checked
+        custom-radio__checkmark_size_l
+        custom-radio__checkmark_theme_litegray
+        custom-radio__checkmark_border
+        custom-radio__checkmark_bx-shadow"
+     ></span>
+  </span>
+</label>
+<label class="custom-radio body__page">
+  <span class="custom-radio__wraper custom-radio__wraper_size_l">
+      Четыре
+     <input type="radio" class="custom-radio__input" name ="radio">
+     <span
+             class="custom-radio__checkmark
+        custom-radio__checkmark_hovered
+        custom-radio__checkmark_checked
+        custom-radio__checkmark_size_l
+        custom-radio__checkmark_theme_litegray
+        custom-radio__checkmark_border
+        custom-radio__checkmark_bx-shadow"
+     ></span>
+  </span>
+</label>
+
+</body>
+</html>

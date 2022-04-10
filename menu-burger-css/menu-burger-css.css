@@ -1,0 +1,95 @@
+
+.menu {
+    width: 80%;
+    height: 1rem;
+    margin: 10px auto;
+}
+.menu__third-line {
+    display: none;
+}
+.menu__contaner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #89bdec;
+    border-radius: 12px;
+    font-size: 1rem;
+}
+.menu__item {
+    flex: 1;
+    text-align: center;
+    border-right:  1px solid dodgerblue ;
+}
+.menu__item:last-child {
+    border-right: none;
+}
+.menu__link {
+    text-decoration: none;
+}
+@media screen and (max-width: 500px) {
+    .menu__contaner {
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 400px) {
+    .menu {
+        height: 40px;
+        width: 40px;
+        border: 2px solid black;
+        position: relative;
+        border-radius: 7px;
+        cursor: pointer;
+        margin-left: 15px;
+    }
+    .menu:after {
+        content: "";
+        position: absolute;
+        border: 2px solid black;
+        width: 80%;
+        text-align: center;
+        top:25%;
+        left:5%;
+    }
+    .menu:before {
+        content: "";
+        position: absolute;
+        border: 2px solid black;
+        width: 80%;
+        text-align: center;
+        top:50%;
+        left: 5%;
+    }
+    .menu__third-line {
+        display: inline-block;
+        position: absolute;
+        border: 2px solid black;
+        width: 80%;
+        text-align: center;
+        top:75%;
+        left: 5%;
+    }
+    .menu__contaner {
+        position: fixed;
+        z-index: 2;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        top:0;
+        bottom: 0;
+        left: 0;
+        width: 0;
+    }
+    .menu:hover .menu__contaner {
+        opacity: 1;
+        visibility: visible;
+        width: 80vw;
+        height: 100%;
+        transition: 0.3s;
+    }
+    .menu__item {
+        border-right: none;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+}

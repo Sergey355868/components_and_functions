@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SerchGithubUser</title>
+</head>
+<style>
+    * {
+        /*box-sizing: border-box;*/
+        padding: 0;
+        margin: 0;
+    }
+   /* body {
+        padding: 0;
+        margin: 0;
+    }
+    html {
+        padding: 0;
+        margin: 0;
+    }*/
+    .main_contaner {
+        /*width: 100vw;*/
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+    .contaner {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .interface-contaner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2196F3;
+        width: 100%;
+    }
+    .input-contaner {
+        padding-left: 1vh;
+    }
+    .information-contaner {
+        font-weight: bold;
+        letter-spacing: normal;
+        color:white;
+        padding: 0 1vw;
+        background-color: #3a98e0;
+        border: 2px solid yellowgreen;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .button-contaner {
+        padding-right:1vh;
+    }
+    .no-users {
+        /*flex: 1;*/
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-weight: bolder;
+        font-size: 5vh;
+        align-items: center;
+        background-color: rgba(34, 34, 34, 0.65);
+    }
+    input[type=text]{
+        width: 100%;
+        padding: 1vh 2vh;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 20vh;
+        height: 35vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2vh;
+        margin: 5vh;
+        /*margin: 40px;*/
+    }
+    .card img {
+       height: 50%;
+       width: 100%;
+    }
+    .card  h3 {
+        flex:1;
+        font-size:3vh;
+        margin: 0 0 1vh 0;
+        padding: 0;
+    }
+    .card .button-press {
+        flex:1;
+        padding: 1vh 1vh;
+        font-size: 1rem;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+    }
+    .button-press:hover {background-color: #3e8e41}
+
+    .button-press:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    .btn {
+        border: none;
+        outline: none;
+        border-radius: 1vh;
+        color: white;
+        padding: 1vh 2vh;
+        cursor: pointer;
+        /*margin-right: 1vh;*/
+    }
+    .success {background-color: #4CAF50;}
+    .success:hover {background-color: #46a049;}
+
+    .info {background-color: #2196F3;}
+    .info:hover {background: #0b7dda;}
+
+    .warning {background-color: #ff9800;}
+    .warning:hover {background: #e68a00;}
+
+    .danger {background-color: #f44336;}
+    .danger:hover {background: #da190b;}
+
+    .default {background-color: #e7e7e7; color: black;}
+    .default:hover {background: #ddd;}
+
+    /* Loader*/
+    .lds-ripple {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-ripple div {
+        position: absolute;
+        border: 4px solid #0b7dda;
+        opacity: 1;
+        border-radius: 50%;
+        animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+    .lds-ripple div:nth-child(2) {
+        animation-delay: -0.5s;
+    }
+    @keyframes lds-ripple {
+        0% {
+            top: 36px;
+            left: 36px;
+            width: 0;
+            height: 0;
+            opacity: 1;
+        }
+        100% {
+            top: 0;
+            left: 0;
+            width: 72px;
+            height: 72px;
+            opacity: 0;
+        }
+    }
+    a {
+        text-decoration: none;
+        color:#fff
+    }
+</style>
+<body>
+    <div class="main_contaner">
+        <div class="interface-contaner">
+            <div class="input-contaner">
+                <input  data-input type="text" placeholder="Enter username" minlength="3"  required >
+            </div>
+            <div class="information-contaner" data-info>
+                <div data-current-page>Текущая страница: 0</div>
+                <div data-all-pages>   Всего страниц:  0 </div>
+            </div>
+            <div class="button-contaner" data-buttons="4">
+                <button class="btn warning" data-first="1" >first page</button>
+                <button class="btn success" data-next ="2" >next page</button>
+                <button class="btn default" data-prev ="3" >prev page</button>
+                <button class="btn danger"  data-last ="4" >last page</button>
+            </div>
+        </div>
+        <div data-container-users class="contaner">
+
+            <div class="no-users">
+                Нету результатов поиска.
+            </div>
+        </div>
+    </div>
+<script>
+    {
+        let links = {
+          current:'',
+          first:'',
+          next:'' ,
+          prev:'',
+          last:'',
+        };
+        let obj = {
+            dataKeys:['input', 'info', 'buttons', 'containerUsers', 'currentPage','allPages'],
+            findObj(root, array) {
+                array.forEach(dataKey => {
+                    if (root.dataset[dataKey] !== undefined) {
+                        this[dataKey] = root;
+                    }
+                });
+                if (root.children.length) {
+                    for (let child of root.children) {
+                        this.findObj(child, array);
+                    }
+                }
+            },
+            testObj() {
+                this.dataKeys.forEach(dataKey => {
+                    if(!this[dataKey]) {
+                        console.log(`${dataKey} объект не найден`);
+                    }
+                });
+            }
+        };
+         obj.findObj(document.body,obj.dataKeys);
+         obj.testObj();
+         //console.log(obj);
+         getDataFromLocalStorage();
+         obj.buttons.onclick = ({ target }) => {
+            if (target.dataset.first && links.first) {
+                reqFetch(obj.containerUsers,"",links.first);
+            } else if (target.dataset.next && links.next) {
+                reqFetch(obj.containerUsers,"",links.next );
+            } else if (target.dataset.prev && links.prev) {
+                reqFetch(obj.containerUsers,"",links.prev );
+            } else if( target.dataset.last && links.last) {
+                reqFetch(obj.containerUsers,"",links.last );
+            }
+         };
+         obj.input.onkeypress = function({ key }) {
+            let userName ='';
+            if (key === 'Enter') {
+               userName = this.value;
+               this.value = '';
+            }
+            userName && reqFetch(obj.containerUsers, userName);
+         }
+        async function reqFetch(root, userName = '', link= '') {
+            root.innerHTML ='<div class="lds-ripple"><div></div><div></div></div>';
+            let respounse = null;
+            let link_of_call ='';
+            try {
+                if (userName && !link) {
+                    Object.keys(links).forEach(link => links[link] = '');
+                    link_of_call = `https://api.github.com/search/users?q=${ userName }in:login&per_page=100&page=1`;
+                    respounse = await fetch(link_of_call);
+                    //console.log(respounse);
+                } else if (!userName && link) {
+                    link_of_call = link;
+                    respounse = await fetch(link_of_call);
+                }
+                if (respounse && respounse.ok) {
+
+                    for (let [header, value] of respounse.headers) {
+                       //console.log(`${ header }: ${ value }`);
+                        if (header === 'link') {
+                            let arrlink = value.split(',');
+                            arrlink.forEach( link => {
+                                if (link.includes('rel="next"')) {
+                                    links.next = toLink(link);
+                                } else if (link.includes('rel="last"')) {
+                                    links.last = toLink(link);
+                                    getNumberCurrentPageAndLast(links.last, obj.allPages, true);
+                                } else if (link.includes('rel="first"')) {
+                                    links.first = toLink(link);
+                                } else if (link.includes('rel="prev"')) {
+                                    links.prev = toLink(link);
+                                }
+                            });
+                        }
+                    }
+                    //console.log(links);
+                    let data = await respounse.json();
+                    let users = data.items;
+                    //console.log(data);
+                    if (users && Array.isArray(users) && users.length) {
+                        links.current = link_of_call;
+                        getNumberCurrentPageAndLast(links.current, obj.currentPage);
+                        useLocalStorage( 'users', users);
+                        useLocalStorage( 'links', links);
+                        if (!links.last) {
+                           //links.current = link_of_call;
+                           getNumberCurrentPageAndLast(links.current, obj.allPages, true);
+                           useLocalStorage('links',links);
+                        }
+                        createCardUser(root, users);
+                    }
+                    if (users && Array.isArray(users) && !users.length) {
+                        boxError(root, true);
+                    }
+                } else {
+                     boxError(root);
+                }
+            } catch (erorr) {
+                //console.log(erorr.message);
+                 boxError(root);
+            }
+        }
+        function getDataFromLocalStorage() {
+            let users = useLocalStorage('users');
+            if (users) {
+                createCardUser(obj.containerUsers, users);
+            }
+            let links_from_ls = useLocalStorage('links');
+            if (links_from_ls) {
+                links = links_from_ls;
+                getNumberCurrentPageAndLast(links.current, obj.currentPage);
+                if (links.last) {
+                    getNumberCurrentPageAndLast(links.last, obj.allPages, true);
+                } else {
+                    getNumberCurrentPageAndLast(links.current, obj.allPages, true);
+                }
+            }
+        }
+        function toLink(string) {
+            let arr = string.split(';');
+            let string_link = arr[0].trim();
+            string_link = string_link.slice(1,string_link.length- 1);
+            return string_link;
+        }
+        function getNumberCurrentPageAndLast(string, root, last = false) {
+            let number = '0';
+            let arr = string.split('=');
+            if (+arr[arr.length-1]) {
+                number = arr[arr.length - 1];
+                root.textContent = `Текущая страница: ${ number }`;
+                if (last) {
+                    root.textContent = `Всего страниц : ${ number }`;
+                }
+            }
+        }
+        function boxError( root, inarr = false) {
+          root.innerHTML = inarr
+          ? "<div class='no-users'>Нету результатов поиска.....</div>"
+          : "<div class='no-users'>Что-то пошло не так....</div>";
+
+        }
+        function createCardUser(root, users) {
+          root.innerHTML = users.map((user) => {
+                return `
+                     <div class="card">
+                         <img src=${user.avatar_url} alt="User" >
+                          <h3>${user.login}</h3>
+                          <button class="button-press"><a href=${user.html_url}>Перейти</a></button>
+                     </div>
+               `;
+            }).join('');
+          }
+        function useLocalStorage( key, value = null) {
+           if (value) {
+               localStorage.setItem(key, JSON.stringify(value));
+               return;
+           }
+          let data = JSON.parse(localStorage.getItem(key));
+          if (data) {
+             return data;
+          }
+        }
+    }
+</script>
+</body>
+</html>

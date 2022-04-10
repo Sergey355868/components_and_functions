@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="./filter_list.js"></script>
+    <title>filter_list</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .page__filter-list {
+            margin: 0 auto;
+        }
+        .filter-list {
+            width: 20vw;
+
+        }
+        .filter-list__input-text {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline-color: #cccccc;
+        }
+        .filter-list__input-text_back-img {
+            background-image: url("./search.png");
+            background-position: 5px;
+            background-repeat: no-repeat;
+        }
+        .filter-list__input-text_size {
+            width: 100%;
+            margin-bottom: 12px;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+        }
+        .filter-list__list{
+            padding: 0;
+            width: 100%;
+            margin: 0 ;
+            list-style: none;
+            text-align: center;
+        }
+        .filter-list__link-item {
+            border: 1px solid #ddd;
+            background-color: #f6f6f6;
+            text-decoration: none;
+            color: black;
+            outline-color: #cccccc;
+        }
+        .filter-list__link-item_size {
+            display: block;
+            margin-top: -1px;
+            padding: 12px;
+            font-size: 18px;
+        }
+        .filter-list__link-item:hover {
+            background-color: #d5d3d3;
+        }
+    </style>
+</head>
+<body class="page">
+
+<div class="filter-list page__filter-list" data-filter-list>
+    <input
+       type="text"
+       class="filter-list__input-text filter-list__input-text_back-img filter-list__input-text_size"
+       data-input-filter-list
+    >
+    <ul id="myUL" class="filter-list__list">
+
+        <li class="filter-list__list-item">
+            <a href="#" class="filter-list__link-item filter-list__link-item_size">Андрей</a>
+        </li>
+        <li class="filter-list__list-item">
+            <a href="#" class="filter-list__link-item filter-list__link-item_size">Алексей</a>
+        </li>
+        <li class="filter-list__list-item">
+            <a href="#" class="filter-list__link-item filter-list__link-item_size">Борис</a>
+        </li>
+        <li class="filter-list__list-item">
+            <a href="#" class="filter-list__link-item filter-list__link-item_size">Владимир</a>
+        </li>
+        <li class="filter-list__list-item">
+            <a href="#" class="filter-list__link-item filter-list__link-item_size">Сергей</a>
+        </li>
+        <li class="filter-list__list-item">
+            <a href="#" class="filter-list__link-item filter-list__link-item_size">Кристина</a>
+        </li>
+        <li class="filter-list__list-item">
+            <a href="#" class="filter-list__link-item filter-list__link-item_size">Татьяна</a>
+        </li>
+   </ul>
+</div>
+</body>
+</html>

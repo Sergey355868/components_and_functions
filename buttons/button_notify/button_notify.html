@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 12px;
+        }
+        .notify__position {
+            padding: 0.8rem 1.6rem;
+            display: inline-block;
+            position: relative;
+        }
+        .notify {
+            display: inline-block;
+            /*outline: 2px solid #89b9ec;*/
+            border-radius: 0.8rem;
+
+        }
+        .notify_theme {
+            background-color: #4faff1;
+            color: white;
+            box-shadow: 3px 3px 6px #89b9ec;
+        }
+        .notify:hover {
+            background: #0066ff;
+        }
+        .notify__text {
+           font-size: 1.1rem;
+           font-style: oblique;
+        }
+        .notify__badge {
+            position: absolute;
+            top: -0.6rem;
+            right: -0.6rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 50%;
+        }
+        .notify__badge_theme {
+            background: #417ad0;
+            color: white;
+            font-weight: bold;
+        }
+        .notify:active {
+            transform: translateY(3px);
+            box-shadow: none;
+        }
+
+    </style>
+</head>
+<body>
+   <a href="#" class="notify notify_theme">
+        <span class = "notify__position" >
+            <span class="notify__text">Входящие</span>
+            <span class="notify__badge notify__badge_theme">5</span>
+        </span>
+  </a>
+</body>
+</html>

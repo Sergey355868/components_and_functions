@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="./experement_menu.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .menu {
+            display: flex;
+            align-items: center;
+            border: 1px solid black;
+            border-radius: 3px;
+        }
+        .menu__menu-item {
+         flex: 1;
+         text-align: center;
+        }
+        .menu_menu-theme_blue {
+          background-color: dodgerblue;
+          border-color: blue;
+        }
+        .menu__menu-item_menu-theme_blue {
+            border-right:  3px solid white;
+        }
+        .menu__menu-item_menu-theme_blue:last-child {
+            border-right: none;
+        }
+        .menu__menu-item_menu-position_rel {
+            position: relative;
+        }
+        .menu_menu-popup {
+            flex-direction: column;
+            border:2px solid  royalblue;
+            border-top: 2px solid white;
+            border-radius: 5px;
+        }
+        .menu_menu-position_abs {
+            position: absolute;
+            top:100%;
+            left: 0;
+        }
+        .menu-in_menu-position_abs {
+            top:0;
+            left: 100%;
+        }
+        .menu__menu-item_menu-popup-theme_blue {
+            border-bottom: 3px solid white;
+            border-radius: 5px;
+        }
+        .menu_w_100 {
+            width: 100%;
+        }
+        .menu_w_80 {
+            width: 80%;
+        }
+        .menu_w_120 {
+            width: 120%;
+        }
+
+        button {
+            margin-top: 200px;
+        }
+        .triangle {
+            border: 10px solid transparent;
+            border-bottom: 10px solid red;
+        }
+        .triangle_position_abs {
+            top: 0;
+            left: 0;
+        }
+        .triangle-in_position_abs {
+             top:0;
+             left: 90%;
+        }
+        .triangle_rotate_180 {
+            border: 10px solid transparent;
+            border-top:10px solid red;
+            top:50%
+        }
+        .triangle-in_rotate_90 {
+            border: 10px solid transparent;
+            border-left: 10px solid red;
+        }
+        .menu_menu-popup-hidden {
+            display: none;
+        }
+        .link {
+            text-decoration: none;
+        }
+        .link_popup-menu {
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu menu_menu-theme_blue" data-menu >
+       <div class="menu__menu-item menu__menu-item_menu-theme_blue menu__menu-item_menu-position_rel" data-menu_open>
+           Меню1
+           <div class=" triangle  menu_menu-position_abs triangle_position_abs "  data-triangle></div>
+           <div class="menu menu_menu-popup menu_menu-position_abs menu_menu-theme_blue menu_w_100 menu_menu-popup-hidden  "  data-popup >
+               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100 menu__menu-item_menu-position_rel " data-menu_open2 >
+                   Подменю 1
+                   <div class=" triangle menu_menu-position_abs triangle-in_position_abs " data-triangle></div>
+                   <div class="menu menu_menu-popup menu_menu-position_abs menu_menu-theme_blue menu_w_100 menu_menu-popup-hidden menu-in_menu-position_abs " data-popup  >
+                       <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100  " data-menu_open2>
+                           Подменю 1234
+
+                           <div class=" triangle menu_menu-position_abs triangle-in_position_abs " data-triangle></div>
+                           <div class="menu menu_menu-popup menu_menu-position_abs menu_menu-theme_blue menu_w_100 menu_menu-popup-hidden menu-in_menu-position_abs " data-popup  >
+                               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100" ><a href="#" class="link link_popup-menu">Подменю 2443343</a></div>
+                               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100"><a href="#"  class="link link_popup-menu">Подменю 34344343</a></div>
+                               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100"><a href="#"  class="link link_popup-menu">Подменю 44344343</a></div>
+                               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100"><a href="#"  class="link link_popup-menu">Подменю 54343434</a></div>
+                           </div>
+                       </div>
+                       <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100" ><a href="#" class="link link_popup-menu">Подменю 244</a></div>
+                       <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100"><a href="#"  class="link link_popup-menu">Подменю 3434</a></div>
+                       <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100"><a href="#"  class="link link_popup-menu">Подменю 4434</a></div>
+                       <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100"><a href="#"  class="link link_popup-menu">Подменю 54343</a></div>
+                   </div>
+               </div>
+               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100" ><a href="#" class="link link_popup-menu">Подменю 2</a></div>
+               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100"><a href="#"  class="link link_popup-menu">Подменю 3</a></div>
+               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100"><a href="#"  class="link link_popup-menu">Подменю 4</a></div>
+               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_100"><a href="#"  class="link link_popup-menu">Подменю 5</a></div>
+           </div>
+       </div>
+       <div class="menu__menu-item menu__menu-item_menu-theme_blue menu__menu-item_menu-position_rel" data-menu_open>
+           Меню2
+           <div class=" triangle menu_menu-position_abs triangle_position_abs " id="triangle2" data-triangle></div>
+           <div class="menu menu_menu-popup menu_menu-position_abs menu_menu-theme_blue menu_w_100 menu_menu-popup-hidden " data-popup id="popup2">
+               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_80 "><a href="#" class="link link_popup-menu">Подменю 1</a></div>
+               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_80" ><a href="#" class="link link_popup-menu">Подменю 2</a></div>
+               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_80"><a href="#"  class="link link_popup-menu">Подменю 3</a></div>
+               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_80"><a href="#"  class="link link_popup-menu">Подменю 4</a></div>
+               <div class="menu__menu-item menu__menu-item_menu-popup-theme_blue menu_w_80"><a href="#"  class="link link_popup-menu">Подменю 5</a></div>
+           </div>
+
+       </div>
+       <div class="menu__menu-item menu__menu-item_menu-theme_blue">Меню3</div>
+       <div class="menu__menu-item menu__menu-item_menu-theme_blue">Меню4</div>
+       <div class="menu__menu-item menu__menu-item_menu-theme_blue">Меню5</div>
+    </div>
+<button id="button">Удалить обработчик</button>
+ </body>
+ </html>
