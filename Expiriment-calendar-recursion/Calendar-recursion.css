@@ -1,0 +1,91 @@
+.calendar {
+    display:flex;
+    flex-direction: column;
+    width: 210px;
+    height: 160px;
+    border: 2px solid  dodgerblue;
+    border-radius: 5px;
+}
+.calendar__head {
+    background-color: #89bdec;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calendar__body {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    background-color: #c4dcf3;
+    overflow: hidden;
+}
+.calendar__days-contaner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: dodgerblue;
+}
+.calendar__days {
+    flex: 0 0 30px;
+    text-align: center;
+}
+.calendar__number-contaner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #0b7dda;
+    text-shadow: 1px 1px 1px white;
+}
+.calendar__numbers {
+    flex: 0 0 30px;
+    text-align: center;
+}
+.calendar__numbers_nocurrent {
+    color:black
+}
+.calendar__nubers_current-day {
+    background-color: white;
+}
+.calendar__month {
+    flex: 7;
+    text-align: center;
+}
+.calendar__arrow-prev {
+    user-select: none;
+    flex: 1;
+    cursor: pointer;
+}
+.calendar__arrow-next {
+    user-select: none;
+    flex: 1;
+    cursor: pointer;
+}
+.numbers_animate_next {
+    animation: _next 0.5s;
+}
+.numbers_animate_prev {
+    animation: _prev 0.5s;
+}
+@keyframes _next {
+
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes _prev {
+
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
