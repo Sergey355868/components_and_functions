@@ -264,6 +264,15 @@ let obj = {
     key6:[]
 };
 //----------------------------------------------------------------------------------------------------------------------
+// копия   с помощью  JSON ( не  учитывакт undefined, методы объекта,Symbol)
+//----------------------------------------------------------------------------------------------------------------------
+function getCopyObjectJSON(obj) {
+    if(!Array.isArray(obj) && typeof obj !=="object" || obj === null) {
+        return null;
+    }
+    return JSON.parse(JSON.stringify(obj));
+}
+//----------------------------------------------------------------------------------------------------------------------
 // простая копия (без флагов и прототипов).
 //----------------------------------------------------------------------------------------------------------------------
 function getSimpleCopyObject(obj) {
@@ -613,6 +622,17 @@ function isStringIncludesSubstr(string, substring, register = true) {
 // console.log(isStringIncludesSubstr("firs", "Fir", false));
 // console.log(isStringIncludesSubstr("fi", 1));
 //----------------------------------------------------------------------------------------------------------------------
+//делает заглавным первым символ в слове.(только для латиницы).
+function capitalize(string) {
+    if (typeof string !== "string") {
+        console.log("Функция ожидает строку");
+        return;
+    }
+    return string.replace(/^[a-z]/, letter => letter.toUpperCase());
+}
+// testing function
+console.log(capitalize("hellow"));
+//----------------------------------------------------------------------------------------------------------------------
 function _bindContextAndArgs (func, context, ...bindArgs) {
     return function (...getArgs) {
         return func.call(context, ...bindArgs, ...getArgs);
@@ -638,7 +658,6 @@ function isEmptyObject (obj) {
     return Object.keys(obj).length === 0;
 }
 //----------------------------------------------------------------------------------------------------------------------
-
 function getSumArray(array, index = 0) {
     if (index === array.length) {
         return 0;
@@ -666,4 +685,125 @@ function getSumArrays(array, index = 0 ) {
 // console.log(getSumArray(arr));
 // console.log(getSumArrays(arr3));
 //----------------------------------------------------------------------------------------------------------------------
-
+// сравнение с помощью JSON.stringify и рекурсивной функции.
+function _isEmptyObject(obj) {
+    return Object.keys(obj).length === 0;
+}
+function _isEmtyObjects(obj1, obj2) {
+    return _isEmptyObject(obj1) && _isEmptyObject(obj2);
+}
+function _isSimpleType (value) {
+    return (typeof value !=="object" && typeof value !=="function") || value === null;
+}
+function _isSimpleTypeValues(value1, value2) {
+    return _isSimpleType(value1) && _isSimpleType(value2);
+}
+function _isObject(obj) {
+    return typeof obj === "object" && obj !== null
+}
+function _isObjects(obj1,obj2) {
+    return _isObject(obj1) && _isObject(obj2);
+}
+function _isEqualLength(arr1, arr2) {
+    return arr1.length === arr2.length;
+}
+function _isArray(obj1, obj2) {
+    return [Array.isArray(obj1),Array.isArray(obj2)].filter(Boolean).length;
+}
+// сравнение простых типов.
+function isEqualSimpleTypes(value1, value2) {
+    return value1 === value2;
+}
+// сравнивает два значения.Функции сравниваются по ссылке.(объекты, простые типы, в том чиле undefined).
+function isEqualValues(value1, value2) {
+    let result = true;
+    if (_isArray(value1, value2) === 2) {
+        for (let i = 0 ;( i < value1.length || i < value2.length); i++) {
+            if (!_isEqualLength(value1, value1)) {
+                result = false;
+                break;
+            }
+            if (_isObjects(value1[i], value2[i]) ) {
+                result = isEqualValues(value1[i],value2[i])
+                if (!result) {
+                    break;
+                }
+                continue;
+            }
+            if (value1[i] !== value2[i]) {
+                result = false;
+                break;
+            }
+        }
+    } else if (_isObject(value1,value2) && !_isArray(value1, value2)) {
+        let arr_keys  = Object.keys(value1);
+        let arr_keys2 = Object.keys(value2);
+        for (let i = 0; (i < arr_keys.length || i < arr_keys2.length); i++) {
+            if(!i) {
+                result = isEqualValues(arr_keys,arr_keys2);
+                if(!result) {
+                    break;
+                }
+            }
+            if (_isObjects(value1[arr_keys[i]],value2[arr_keys[i]])) {
+                result = isEqualValues(value1[arr_keys[i]],value2[arr_keys[i]]);
+                if (!result) {
+                    break;
+                }
+                continue;
+            }
+            if (value1[arr_keys[i]] !== value2[arr_keys[i]]) {
+                result = false;
+                break;
+            }
+        }
+    } else {
+        result = value1 === value2;
+    }
+    return result;
+}
+// или намного проще
+function isEqualValues2(value1, value2) {
+    if (_isObjects(value1,value2)) {
+        return JSON.stringify(value1) === JSON.stringify(value2);
+    }
+    return  value1 === value2;
+}
+// testing functions
+// let arr = [1,2,3,4,5,[],{}];
+// let arr2 =[1,2,3,4,5,[],{}];
+// let obj1 = {
+//     ke1: "1",
+//     key2: "2",
+//     key3: {
+//         key1:'1',
+//         ke1: "1",
+//         key2: "2",
+//         key4: [1,2,3,4,5,6,[1,2,3,{key:3}]],
+//         key5: {
+//             key1: "2"
+//         }
+//     }
+// };
+// let obj2 = {
+//     ke1: "1",
+//     key2: "2",
+//     key3: {
+//         key1:'1',
+//         ke1: "1",
+//         key2: "2",
+//         key4: [1,2,3,4,5,6,[1,2,3,{key:5}]],
+//         key5: {
+//             key1: "2"
+//         }
+//     }
+// };
+// console.log(isEqualValues(arr, arr2));
+// console.log(isEqualValues(obj1, obj2));
+// console.log(isEqualValues([],{}));
+// console.log("сравнение")
+// console.log(isEqualValues2(arr, arr2));
+// console.log(isEqualValues2(obj1, obj2));
+// console.log(isEqualValues2([], {}));
+//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
