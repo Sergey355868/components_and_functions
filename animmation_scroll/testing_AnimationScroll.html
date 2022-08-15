@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href ="./styles.css">
+    <script defer src ="./AnimationScroll.js"></script>
+    <script defer src ="./actions.js"></script>
+    <title>Testing_AnimationScroll</title>
+    </head>
+<body>
+   <button class="down" onclick="pageDown()">Вниз</button>
+   <button class="left" onclick="pageRight()">Вправо</button>
+   <button class="right" onclick="pageLeft()">влево</button>
+   <button class = "before" id="before">Прокрутить до элемента</button>
+   <div class="aft" id ="aft"></div>
+   <div class="photo-galerry">
+       <div class="photo-galery__contaner" id ="contaner">
+           <button class="arrow-next" id ="next" >
+               <span class="arrow-next__for-position" ></span>
+           </button>
+           <button class="arrow-prev arrow-prev_position_r" id="prev"></button>
+           <img src="./images/Beach1.jpg" alt="картинка" class="photo-galerry__img">
+           <img src="./images/more3.jpg" alt="картинка" class="photo-galerry__img">
+           <img src="./images/more.jpg" alt="картинка" class="photo-galerry__img">
+       </div>
+   </div>
+    <button class="up" id="up"  onclick="pageUp()">Вверх</button>
+ </body>
+</html>
