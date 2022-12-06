@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Merge</title>
+    <style>
+        span {
+            font-weight: bold;
+            color: lightblue;
+        }
+        pre {
+            color: purple;
+            font-style: italic;
+            border:2px solid gray;
+            width: max-content;
+            border-radius:10px;
+            background-color: #f6f1f1;
+        }
+    </style>
+</head>
+<body>
+<pre id ="pre">
+     let obj1 ={
+        key1:"value1",
+        key2:"value2",
+        key3:"value3",
+        key4: {
+            value1:"valu4",
+            key5: {
+                value5:"value5",
+            }
+        }
+    };
+</pre>
+<script>
+    let pre = document.getElementById("pre");
+    let html = pre.innerHTML;
+    let color = ["red", "blue", "green","green","purple"];
+
+    function serchDoublesBrackets(string, color) {
+        const addedBrackets = [];
+        let index = 0;
+        return string.replace(/[{}]/g,(match) => {
+           if(match === "{") {
+               let last;
+               addedBrackets.push(color[(last = index++)]);
+              return `<span style="color:${addedBrackets[last]}">{</span>`
+           }
+           if(match === "}") {
+               let replace = `<span style="color:${addedBrackets[addedBrackets.length -1]}">}</span>`;
+               addedBrackets.length --;
+               return replace;
+           }
+        });
+    }
+    pre.innerHTML = serchDoublesBrackets(html,color);
+</script>
+</body>
+</html>

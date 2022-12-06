@@ -98,7 +98,16 @@
         <input type="submit" value="Отправить" class="contact-form__input-submit contact-form__input-submit_theme_dark">
     </form>
 </div>
-
+<script>
+    let textarea = document.getElementById("subject");
+    textarea.onchange = (event) => {
+        console.log(event);
+    }
+    console.log(textarea);
+    textarea.onresize = () => {
+        console.log("resize");
+    }
+</script>
 
 </body>
 </html>
